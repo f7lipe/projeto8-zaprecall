@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+p{
+    font-family: 'Righteous', cursive;
+}
+
+.d-y-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.d-x-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    background-color: #FB6B6B;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.hidden{
+    display: none;
+}
