@@ -1,0 +1,40 @@
+.answer{
+    height: 80px;
+    background-color: #FFFFD4;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0px 4px 5px 0px #00000026;
+}
+
+.answer p{
+    font-size: 12px;
+    color:   #333333;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+}
+
+.green-btn, .red-btn, .orange-btn{
+    height: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    margin-right: 5px;
+    border-style: none;
+    background: transparent;
+}
+
+.green-btn{
+    background: #2FBE34;
+}
+
+.orange-btn{
+    background: #FF922E;
+}
+
+.red-btn{
+    background: #FF3030;
+}

@@ -9,6 +9,11 @@ footer{
 
 footer p{
     color: black;
-    font-size: 20px;
+    font-size: 12px;
     font-family: 'Righteous', cursive;
+}
+
+ion-icon{
+    margin-bottom: 15px;
+    font-size: 17px;
 }
