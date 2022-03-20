@@ -1,7 +1,9 @@
-export default function Flashcard(){
+import "./css/flahscard.css"
+
+export default function Flashcard(props){
     return(
-        <section class="flashcard ">
-        <h4>Pergunta 1</h4>
+        <section className="flashcard ">
+        <h4>{props.name}</h4>
         <ion-icon name="play-outline"></ion-icon>
       </section>
 
