@@ -1,7 +1,9 @@
 import "./css/answer.css"
+import React, { useState } from "react";
 
 export default function Answer(props){
   const {answer} = props
+ 
     return(
         <section class="answer">
         <p>{answer}</p>
