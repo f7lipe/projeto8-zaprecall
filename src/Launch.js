@@ -1,4 +1,5 @@
 import "./css/launch.css"
+import logo from "./assets/logo.png"
 
 export default function Launch(props) {
     const {callback} = props
@@ -10,7 +11,7 @@ export default function Launch(props) {
     return (
         <section className="launch d-y-center">
 
-            <img src="images/logo.png" alt=""/>
+            <img src={logo} alt=""/>
                 <p>ZapRecall</p>
 
                 <button onClick={()=>beginZapRecall(false)}>Iniciar Recall!</button>

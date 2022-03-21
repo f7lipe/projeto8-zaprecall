@@ -1,7 +1,7 @@
 import "./css/normalize.css"
 import "./css/index.css"
 import "./css/footer.css"
-import logo from "./assets/logo.png"
+import logo from "./assets/logo-pequeno.png"
 import { useState } from "react";
 
 
