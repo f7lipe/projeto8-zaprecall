@@ -23,62 +23,74 @@ const decks = [
 export default function App() {
 
     let [answers, setAnswers] = useState([])
-    
+    let [showingLaunch, setShowingLaunch] = useState(true)
     return (
 
         <>
-            <header className="logo d-x-center">
-                <img src={logo} alt="" />
-                <p>ZapRecall</p>
-            </header>
 
-            <main>
-
-            {
-                decks.map((deck, index) =>
-                    <Flashcard name={`Pergunta ${index + 1}`} 
-                               deck={deck} 
-                               key={UUID()}
-                               answers = {answers}
-                               callback = {setAnswers}/>
-                )
+            {showingLaunch &&
+                <Launch callback={setShowingLaunch} />
             }
-            
-            </main>
 
-            <footer className="d-y-center">
-                <p >{answers.length}/{decks.length} concluídos</p>
-                <div className="status-icons d-x-center">
-                    <div className="red"> 
-                    {
-                        answers.includes('wrong') &&
-                        <ion-icon className="red" name="close-circle"></ion-icon>
-                    }
-                    </div>
+            {!showingLaunch &&
+                <>
 
-                    <div className="orange">
-                    {   
-                        answers.includes('almost') &&
-                        <ion-icon name="help-circle"></ion-icon>
-                    }
 
-                    </div>
+                    <header className="logo d-x-center">
+                        <img src={logo} alt="" />
+                        <p>ZapRecall</p>
+                    </header>
 
-                    <div className="green">
-                    {   
-                        answers.includes('zap') &&
-                        <ion-icon className="green" name="checkmark-circle"></ion-icon>
-                    }
-                    </div>
-                </div>
-            </footer>
+                    <main>
+
+                        {
+                            decks.map((deck, index) =>
+                                <Flashcard name={`Pergunta ${index + 1}`}
+                                    deck={deck}
+                                    key={UUID()}
+                                    answers={answers}
+                                    callback={setAnswers} />
+                            )
+                        }
+
+                    </main>
+
+                    <footer className="d-y-center">
+                        <p >{answers.length}/{decks.length} concluídos</p>
+                        <div className="status-icons d-x-center">
+                            <div className="red">
+                                {
+                                    answers.includes('wrong') &&
+                                    <ion-icon className="red" name="close-circle"></ion-icon>
+                                }
+                            </div>
+
+                            <div className="orange">
+                                {
+                                    answers.includes('almost') &&
+                                    <ion-icon name="help-circle"></ion-icon>
+                                }
+
+                            </div>
+
+                            <div className="green">
+                                {
+                                    answers.includes('zap') &&
+                                    <ion-icon className="green" name="checkmark-circle"></ion-icon>
+                                }
+                            </div>
+                        </div>
+                    </footer>
+
+                </>
+            }
         </>
+
     )
 }
 
 function UUID() {
-    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
-  }
-  
+}
