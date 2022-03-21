@@ -7,9 +7,6 @@ import { useState } from "react";
 
 import Launch from "./Launch";
 import Flashcard from "./Flashcard";
-import Question from "./Question";
-import Answer from "./Answer";
-import react from "react";
 
 const decks = [
     { question: "O que é JSX?", answer: "Uma extensão de linguagem do JavaScript" },
@@ -25,11 +22,8 @@ const decks = [
 
 export default function App() {
 
-    const footerIconts = ["close-circle-outline", "help-circle-outline", "checkmark-circle-outline"]
     let [answers, setAnswers] = useState([])
-
-
-
+    
     return (
 
         <>
@@ -42,19 +36,49 @@ export default function App() {
 
             {
                 decks.map((deck, index) =>
-                    <Flashcard name={`Pergunta ${index + 1}`} deck={deck} />
+                    <Flashcard name={`Pergunta ${index + 1}`} 
+                               deck={deck} 
+                               key={UUID()}
+                               answers = {answers}
+                               callback = {setAnswers}/>
                 )
             }
+            
             </main>
 
             <footer className="d-y-center">
-                <p >0/{decks.length} concluídos</p>
+                <p >{answers.length}/{decks.length} concluídos</p>
                 <div className="status-icons d-x-center">
+                    <div className="red"> 
                     {
-                        footerIconts.map((icon) => <ion-icon name={icon}></ion-icon>)
+                        answers.includes('wrong') &&
+                        <ion-icon className="red" name="close-circle"></ion-icon>
                     }
+                    </div>
+
+                    <div className="orange">
+                    {   
+                        answers.includes('almost') &&
+                        <ion-icon name="help-circle"></ion-icon>
+                    }
+
+                    </div>
+
+                    <div className="green">
+                    {   
+                        answers.includes('zap') &&
+                        <ion-icon className="green" name="checkmark-circle"></ion-icon>
+                    }
+                    </div>
                 </div>
             </footer>
         </>
     )
 }
+
+function UUID() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+  }
+  
