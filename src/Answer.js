@@ -1,7 +1,10 @@
-export default function Answer(){
+import "./css/answer.css"
+
+export default function Answer(props){
+  const {answer} = props
     return(
         <section class="answer">
-        <p>JSX é uma sintaxe para escrever HTML dentro do JS</p>
+        <p>{answer}</p>
         <div class="buttons">
           <button class="red-btn">Não lembrei</button>
           <button class="orange-btn">Quase não lembrei</button>

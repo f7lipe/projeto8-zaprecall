@@ -14,3 +14,7 @@
 ion-icon{
     font-size: x-large;
 }
+
+.hidden{
+    display: none;
+}

@@ -1,11 +1,12 @@
+import "./css/question.css"
+import setinha from "./assets/setinha.png"
 
-
-export default function Question(){
+export default function Question(props){
+  const {question, answer} = props.deck
     return(
         <section className="question">
-        <p>O que é JSX?</p>
-        <img src="images/setinha.png" alt=""/>
+        <p>{question}</p>
+        <img src={setinha} alt=""/>
       </section>
-
     )
 }

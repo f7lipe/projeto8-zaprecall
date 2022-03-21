@@ -42,7 +42,7 @@ export default function App() {
 
             {
                 decks.map((deck, index) =>
-                    <Flashcard name={'Pergunta ' + index} deck={deck} />
+                    <Flashcard name={`Pergunta ${index + 1}`} deck={deck} />
                 )
             }
             </main>
