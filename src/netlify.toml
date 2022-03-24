@@ -1,4 +1,0 @@
-```jsx
-[build]
-command = “CI=false npm run build”
-```
